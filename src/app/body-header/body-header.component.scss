@@ -1,0 +1,52 @@
+@import '/src/vars';
+.body-header-container{
+    width: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    .text-container{
+        display: flex;
+        flex-direction: column;
+        .primary-text{
+            color: white;
+            font-size: large;
+        }
+        .secondary-text{
+            color: #717f96;
+            font-size: medium;
+        }
+    }   
+    .right-side{
+        display: flex;
+        align-items: center;
+        .view-type{ 
+            width: 2rem;
+            height: 2em;
+            @include image-contain(); 
+            background-image: url('/assets/icons/icons8-grid-64.png');
+             
+        }
+        .left-right{
+            display: flex;
+            width: 10rem;
+            align-items: center;
+            justify-content: space-around;
+            .common{
+                width: 2rem;
+                height: 2rem;
+                @include image-contain();
+                background-color: white;
+                cursor: pointer;
+            }
+            .left{
+                background-image: url('/assets/icons/icons8-chevron-left-30.png');
+            }
+            .right{
+                background-image: url('/assets/icons/icons8-chevron-right-30.png');
+            }
+            
+        }
+        
+    }
+}

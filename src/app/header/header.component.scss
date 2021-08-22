@@ -1,0 +1,56 @@
+.container{
+    width: 100%; 
+    display: flex;
+    background: #252a48;
+    padding: 2rem;
+    .search-container{
+        width: 50rem; 
+        display: flex;
+        align-items: center;
+        background-color: transparent; 
+        justify-content: center; 
+        .fa-search{
+            color: #717f96;
+            margin-right: 0.5rem;
+        }
+        .input-field{
+            width: calc(100% - 0.5rem);
+            input{
+                width: 100%;
+                border: none;
+                outline: none;
+                box-sizing: border-box;
+                background: transparent;
+                color: white;
+                &::placeholder{
+                    color: #717f96;
+                }
+            }
+        }
+    }
+    .fa-cog{ 
+        color: #717f96;
+        cursor: pointer;
+        margin-right: 6rem;
+    }
+    .fa-bullhorn{
+        color: #717f96;
+        cursor: pointer;
+    }
+    .profile-section{
+        width: calc(100% - 58rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .fa-user{
+            color: #717f96;
+            cursor: pointer;
+        }
+        .name{
+            color: #717f96;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+    }
+}
