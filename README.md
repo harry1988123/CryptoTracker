@@ -1,3 +1,7 @@
+![alt text](https://github.com/harry1988123/CryptoTracker/blob/master/1.PNG)
+![alt text](https://github.com/harry1988123/CryptoTracker/blob/master/2.PNG)
+![alt text](https://github.com/harry1988123/CryptoTracker/blob/master/3.PNG) 
+
 # CryptoTracker
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
