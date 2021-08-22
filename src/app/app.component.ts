@@ -29,7 +29,7 @@ export class AppComponent {
       this.coinListRawData = res.data; 
       this.totalNumberOfCryptoList = _.uniq(_.map(res.data,"id"));
       this.getShortNameofCoin();
-      this.generateListFromCounter();
+      //this.generateListFromCounter();
     },(error)=>{
       console.log(error);
     },()=>{

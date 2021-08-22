@@ -21,7 +21,7 @@ export class CardComponent implements OnInit {
   chardata: any[] = [];
   chartOptions: any;
   subject:any;
-  SocketUrl = `wss://ws.coincap.io/prices?assets=${this.cryptoCoinType}`;
+  SocketUrl = `wss://ws.coincap.io/prices?assets=`;
 
   
 
@@ -36,12 +36,14 @@ export class CardComponent implements OnInit {
       this.chartOptions = {
         series: [{ 
           data: this.chardata,
+          name: cryptoCoinType.toUpperCase(),
           dataLabels: {
             enabled: false
           },
         },],
         title:{
-           text: cryptoCoinSortName + " " + "<img src='https://assets.coincap.io/assets/icons/" + cryptoCoinSortName + "@2x.png" +" />"
+           useHTML: true,
+           text:  "<img src='https://assets.coincap.io/assets/icons/" + cryptoCoinSortName + "@2x.png' width='30px' height='30px' alt=''/>" + "  " + cryptoCoinSortName.toUpperCase()
         },
         chart: {
           type: "line",
@@ -72,8 +74,8 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subject = webSocket(this.SocketUrl);
+    this.subject = webSocket(this.SocketUrl+this.cryptoCoinType);
     const currentSubject = this.subject;
-    this.drawChart(currentSubject, this.cryptoCoinType, this.cryptoCoinSortName);
+    this.drawChart(currentSubject, this.cryptoCoinType, this.cryptoCoinSortName.toLowerCase());
   }
 }

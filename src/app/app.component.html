@@ -3,6 +3,7 @@
 <div class="cards-container">
     <ng-container *ngFor="let item of totalNumberOfCryptoList; let i = index;">
         <app-card [cryptoCoinType] = item [cryptoCoinSortName] = coinSortNameList[i] ></app-card>
+        <!-- <app-card [cryptoCoinType] = item ></app-card> -->
     </ng-container>
 </div>
 
