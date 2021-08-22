@@ -39,7 +39,10 @@ export class AppComponent {
   }
 
   generateListFromCounter(){
-    this.listOfCrypto = this.totalNumberOfCryptoList.slice(0,this.cryptoSer.counter);
+    // this.cryptoSer.getCouterCount().subscribe(count => {
+    //   this.listOfCrypto = this.totalNumberOfCryptoList.slice(0,count);
+    // })   
+    //this.listOfCrypto =  this.totalNumberOfCryptoList.slice(0,4);
   }
 
   getShortNameofCoin(){

@@ -10,15 +10,16 @@ export class CryptoServiceService {
   counter = 4;
   counterSub : Subject<number> = new Subject<number>();
 
-  constructor(public http: HttpClient ) {  
-    this.counterSub.subscribe((value:number) =>{
-      this.counter = value;
-    })
-   }
+  constructor(public http: HttpClient ) {  }
 
    increaseCounter(){
      this.counterSub.next(this.counter++);
    }
+
+   getCouterCount(){
+     return this.counterSub.asObservable();
+   }
+
   getCryptoList(){
     return this.http.get('https://api.coincap.io/v2/assets');
   }
