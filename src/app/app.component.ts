@@ -19,6 +19,8 @@ export class AppComponent {
   totalNumberOfCryptoList: any[] = [];
   coinListRawData: any[] = [];
   coinSortNameList: any[] = [];
+  today = Date.now();
+
 
   constructor(public cryptoSer: CryptoServiceService){  }
 
