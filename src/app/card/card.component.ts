@@ -12,38 +12,38 @@ import { AppComponent } from '../app.component';
 })
 export class CardComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
-  BitCoin:any;
-  @Input() cryptoCoinType! : any;
-  @Input() cryptoCoinSortName : any;
+  BitCoin: any;
+  @Input() cryptoCoinType!: any;
+  @Input() cryptoCoinSortName: any;
 
   rate: any;
-  rate$: Subscription | undefined; 
+  rate$: Subscription | undefined;
   chardata: any[] = [];
   chartOptions: any;
-  subject:any;
-  SocketUrl = `wss://ws.coincap.io/prices?assets=`;
+  subject: any;
+  SocketUrl = `wss://wss.coincap.io/prices?assets=`;
 
-  
+
 
   constructor() { }
 
-  drawChart(currentSubject:any,cryptoCoinType:any,cryptoCoinSortName:any){
+  drawChart(currentSubject: any, cryptoCoinType: any, cryptoCoinSortName: any) {
     this.rate = currentSubject.pipe(
-      concatMap(item => of (item).pipe(delay(1000)))
+      concatMap(item => of(item).pipe(delay(1000)))
     ).subscribe((data: any) => {
       this.rate = data;
       this.chardata.push(Number(this.rate[cryptoCoinType]))
       this.chartOptions = {
-        series: [{ 
+        series: [{
           data: this.chardata,
           name: cryptoCoinType.toUpperCase(),
           dataLabels: {
             enabled: false
           },
         },],
-        title:{
-           useHTML: true,
-           text:  "<img src='https://assets.coincap.io/assets/icons/" + cryptoCoinSortName + "@2x.png' width='30px' height='30px' alt=''/>" + "  " + cryptoCoinSortName.toUpperCase()
+        title: {
+          useHTML: true,
+          text: "<img src='https://assets.coincap.io/assets/icons/" + cryptoCoinSortName + "@2x.png' width='30px' height='30px' alt=''/>" + "  " + cryptoCoinSortName.toUpperCase()
         },
         chart: {
           type: "line",
@@ -52,20 +52,20 @@ export class CardComponent implements OnInit {
           backgroundColor: '#FFF',
           color: '#000'
         },
-        xAxis:{
+        xAxis: {
           enabled: false,
           visible: true,
         },
-        yAxis:{
+        yAxis: {
           enabled: true,
           visible: true,
           labels: {
             enabled: true
           },
         },
-        labels:{
+        labels: {
           enable: false
-        }, 
+        },
         credits: {
           enabled: false
         }
@@ -74,7 +74,7 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.subject = webSocket(this.SocketUrl+this.cryptoCoinType);
+    this.subject = webSocket(this.SocketUrl + this.cryptoCoinType);
     const currentSubject = this.subject;
     this.drawChart(currentSubject, this.cryptoCoinType, this.cryptoCoinSortName.toLowerCase());
   }
